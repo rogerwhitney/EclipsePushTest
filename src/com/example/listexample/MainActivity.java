@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends Activity {
 	private TextView selection;
 	private static final String[] items={"lorem", "ipsum", "dolor",
 		"sit", "amet", "consectetuer", "adipiscing", "elit", "morbi", "vel",
@@ -22,7 +22,8 @@ public class MainActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		selection=(TextView)findViewById(R.id.selection);
-		setListAdapter(new ArrayAdapter<String>(this,
+		ListView list = (ListView) findViewById(R.id.list);
+		list.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, items));
 	}
 
